@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:umma_sunn_website/screens/dashbordscreen.dart';
 //import 'package:umma_sunn_website/resources/routes_manager.dart';
 import 'package:umma_sunn_website/screens/forgetscreen.dart';
 
@@ -136,7 +137,14 @@ class _LogInScreenState extends State<LogInScreen> {
                             height: 40,
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const DashbordScreenview()),
+                                );
+                              },
                               child: const Text(
                                 "sign in",
                                 style:  TextStyle(color: Colors.white),
