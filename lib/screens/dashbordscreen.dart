@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:umma_sunn_website/constant/String_manager.dart';
 import 'package:umma_sunn_website/screens/user_management.dart';
 
 class DashbordScreenview extends StatefulWidget {
@@ -9,6 +10,7 @@ class DashbordScreenview extends StatefulWidget {
 }
 
 class _DashbordScreenviewState extends State<DashbordScreenview> {
+  bool pressed = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,13 +22,13 @@ class _DashbordScreenviewState extends State<DashbordScreenview> {
               left: 20,
               right: 15,
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Dashboard",
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: MediaQuery.of(context).size.width / 40,
                     fontWeight: FontWeight.w700,
                     color: Color.fromARGB(255, 32, 35, 136),
                   ),
@@ -56,7 +58,7 @@ class _DashbordScreenviewState extends State<DashbordScreenview> {
                     // height: 500,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Color(0xfff6f6f6),
                       borderRadius:
                           BorderRadius.only(topRight: Radius.circular(15)),
                     ),
@@ -67,18 +69,32 @@ class _DashbordScreenviewState extends State<DashbordScreenview> {
                         ),
                         ListTile(
                           leading: Icon(Icons.home),
-                          title: Text("Dashboard"),
+                          title: Text(
+                            "Dashboard",
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width / 50),
+                          ),
                           onTap: () {},
                         ),
                         ListTile(
-                          leading: Icon(Icons.people_alt_outlined),
-                          title: Text("User management"),
-                          onTap: () { Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const UserManagemntscreen()),
-                                );},
+                          leading: Icon(Icons.people_alt_outlined,
+                              color: Color(0xffc2c0bd)),
+                          title: Text(AppString.userm,
+                              style: pressed
+                                  ? TextStyle(color: Color(0xff4e82bb))
+                                  : TextStyle(
+                                      color: Color(0xffc2c0bd),
+                                    )),
+                          onTap: () {
+                            pressed = !pressed;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const UserManagemntscreen()),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -91,8 +107,8 @@ class _DashbordScreenviewState extends State<DashbordScreenview> {
                     //height: 500,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      //color: const Color.fromARGB(255, 53, 32, 32),
-                    ),
+                        //color: const Color.fromARGB(255, 53, 32, 32),
+                        ),
                   ),
                 ),
               ],

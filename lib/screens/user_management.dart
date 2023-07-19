@@ -46,7 +46,7 @@ class _UserManagemntscreenState extends State<UserManagemntscreen> {
                     // height: 500,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Color(0xffc2c0bd),
                       borderRadius:
                           BorderRadius.only(topRight: Radius.circular(15)),
                     ),
@@ -63,12 +63,14 @@ class _UserManagemntscreenState extends State<UserManagemntscreen> {
                         ListTile(
                           leading: Icon(Icons.people_alt_outlined),
                           title: Text("User management"),
-                          onTap: () { Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const UserManagemntscreen()),
-                                );},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const UserManagemntscreen()),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -81,35 +83,37 @@ class _UserManagemntscreenState extends State<UserManagemntscreen> {
                     //height: 500,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      //color: const Color.fromARGB(255, 53, 32, 32),
+                        //color: const Color.fromARGB(255, 53, 32, 32),
+                        ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.person_add_alt_outlined),
+                                  label: Text("Add user"))
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text("User Name"),
+                              Text("Employee ID"),
+                              Text("email id"),
+                              Text("Role"),
+                              Text("Status"),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton.icon(onPressed: (){}, icon: Icon(Icons.person_add_alt_outlined), label: Text("Add user"))
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text("User Name"),
-                            Text("Employee ID"),
-                            Text("email id"),
-                            Text("Role"),
-                            Text("Status"),
-                          ],
-                      
-                        ),
-                      )
-                    ],
-                  ),
                   ),
                 ),
               ],
@@ -118,6 +122,5 @@ class _UserManagemntscreenState extends State<UserManagemntscreen> {
         ],
       ),
     );
-
   }
 }
